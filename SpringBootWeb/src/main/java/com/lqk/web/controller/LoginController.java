@@ -22,7 +22,7 @@ public class LoginController {
 			session.setAttribute("loginUser", username);
 			return "redirect:/main.html";
 		} else {
-			return "login";
+			return "redirect:/";
 		}
 	}
 }
