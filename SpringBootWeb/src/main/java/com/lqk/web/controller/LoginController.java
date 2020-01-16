@@ -7,20 +7,21 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
 
 	@PostMapping(value = "/user/login")
-	public String login(String username, String password, Map<String, Object> map, HttpSession session) {
-		if (StringUtils.isEmpty(username)) {
+	public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String, Object> map,
+			HttpSession session) {
+		System.out.println("userName:"+ username);
+		System.out.println("password:"+ password);
+		if (!StringUtils.isEmpty(username) && "1".equals(password)) {
 			System.out.println(username);
-			username = "11";
-			System.out.println("11111111111111");
 			session.setAttribute("loginUser", username);
 			return "redirect:/main.html";
 		} else {
-			System.out.println("222222222222222");
 			return "login";
 		}
 	}
