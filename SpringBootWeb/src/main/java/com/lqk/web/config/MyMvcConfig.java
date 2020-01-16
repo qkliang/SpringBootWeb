@@ -16,7 +16,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 		WebMvcConfigurer.super.addViewControllers(registry);
 		registry.addViewController("/").setViewName("login");
 		registry.addViewController("/index.html").setViewName("login");
-//		registry.addViewController("/main.html").setViewName("dashboard");
+		registry.addViewController("/main.html").setViewName("dashboard");
 	}
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
