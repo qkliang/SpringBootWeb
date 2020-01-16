@@ -13,11 +13,12 @@ public class LoginController {
 
 	@PostMapping(value = "/user/login")
 	public String login(String username, String password, Map<String, Object> map, HttpSession session) {
-		if(StringUtils.isEmpty(username)) {
-			
-		session.setAttribute("loginUser", username);
-		return "redirect:/main.html";
-		}else {
+		if (StringUtils.isEmpty(username)) {
+			System.out.println("11111111111111");
+			session.setAttribute("loginUser", username);
+			return "redirect:/dashboard";
+		} else {
+			System.out.println("222222222222222");
 			return "login";
 		}
 	}

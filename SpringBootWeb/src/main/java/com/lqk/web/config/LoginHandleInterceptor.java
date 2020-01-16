@@ -17,8 +17,7 @@ public class LoginHandleInterceptor implements HandlerInterceptor{
 			//返回登录页面
 			request.getRequestDispatcher("/index.html").forward(request, response);
 			return false;
-		}else {
-			
+		}else {			
 			return true;
 		}
 	}
