@@ -8,15 +8,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.lqk.tools.DataBaseConnection;
 /**
  * @author lqk
  * @date 2019/08/12
  */
 public class ResultSetMetaDataDemo {
 	public static void main(String[] args) throws Exception {
-		DataBaseConnection db = DataBaseConnection.getInstance();
-		Connection conn = db.getConn();
+//		DataBaseConnection db = DataBaseConnection.getInstance();
+//		Connection conn = db.getConn();
+		Connection conn = null;
 		String sql = "select id,lastName,gender,email from employee";
 		ResultSet rs = conn.createStatement().executeQuery(sql);
 		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
@@ -40,12 +40,5 @@ public class ResultSetMetaDataDemo {
 			System.out.println(map.get("email"));
 			System.out.println("------------------------------");
 		}
-		db.close();
-		sql = "select 1+1 from dual";
-		rs = db.getConn().createStatement().executeQuery(sql);
-		if(rs.next()){
-			System.out.println("连接成功");
-		}
-		db.close();
 	}
 }
